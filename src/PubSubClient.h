@@ -108,8 +108,6 @@ private:
    //       (MQTT_MAX_HEADER_SIZE - <returned size>) bytes into the buffer
    size_t buildHeader(uint8_t header, uint8_t* buf, uint16_t length);
    IPAddress ip;
-   const char* domain;
-   uint16_t port;
    Stream* stream;
    int _state;
 public:
@@ -129,6 +127,9 @@ public:
    PubSubClient(const char*, uint16_t, MQTT_CALLBACK_SIGNATURE,Client& client, Stream&);
 
    ~PubSubClient();
+
+   const char* domain;
+   uint16_t port;
 
    PubSubClient& setServer(IPAddress ip, uint16_t port);
    PubSubClient& setServer(uint8_t * ip, uint16_t port);
